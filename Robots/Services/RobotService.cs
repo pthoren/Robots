@@ -24,9 +24,10 @@ namespace Robots
 
             IEnumerable<RobotWithDistance> robotsOrderedByDistance = robots
                 .Select(r => new RobotWithDistance(r.RobotId, r.BatteryLevel, r.X, r.Y, Utilities.Distance(r.X, r.Y, load.X, load.Y)))
+                .Where(r => r.BatteryLevel > 0)
                 .OrderBy(r => r.Distance);
 
-            IEnumerable<RobotWithDistance> robotsWithin10Units = robotsOrderedByDistance.Where(r => r.Distance < 10);
+            IEnumerable<RobotWithDistance> robotsWithin10Units = robotsOrderedByDistance.TakeWhile(r => r.Distance < 10);
 
             return robotsWithin10Units.Any()
                 ? robotsWithin10Units.OrderByDescending(r => r.BatteryLevel).First()
