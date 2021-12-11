@@ -18,19 +18,28 @@ namespace Robots
             this.client = new HttpClient();
         }
 
-        public async Task<Robot> SelectRobotForLoad(LoadRequest load)
+        public async Task<RobotWithDistance> SelectRobotForLoad(LoadRequest load)
         {
-            IEnumerable<Robot> robots = await GetRobots();
-            return robots.First();
+            IList<Robot> robots = await GetRobots();
+
+            IEnumerable<RobotWithDistance> robotsOrderedByDistance = robots
+                .Select(r => new RobotWithDistance(r.RobotId, r.BatteryLevel, r.X, r.Y, Utilities.Distance(r.X, r.Y, load.X, load.Y)))
+                .OrderBy(r => r.Distance);
+
+            IEnumerable<RobotWithDistance> robotsWithin10Units = robotsOrderedByDistance.Where(r => r.Distance < 10);
+
+            return robotsWithin10Units.Any()
+                ? robotsWithin10Units.OrderByDescending(r => r.BatteryLevel).First()
+                : robotsOrderedByDistance.First();
         }
 
-        public Task<IEnumerable<Robot>> GetRobots()
+        public Task<IList<Robot>> GetRobots()
         {
             foreach (string url in apiUrls)
             {
                 try
                 {
-                    return client.GetFromJsonAsync<IEnumerable<Robot>>(url);
+                    return client.GetFromJsonAsync<IList<Robot>>(url);
                 }
                 catch (Exception e)
                 {

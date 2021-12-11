@@ -23,8 +23,8 @@ namespace Robots.Controllers
         [HttpPost]
         public async Task<LoadResponse> RequestRobot(LoadRequest request)
         {
-            Robot robot = await robotService.SelectRobotForLoad(request);
-            return new LoadResponse(robot.RobotId, 99, robot.BatteryLevel);
+            RobotWithDistance robot = await robotService.SelectRobotForLoad(request);
+            return new LoadResponse(robot.RobotId, robot.Distance, robot.BatteryLevel);
         }
     }
 }
