@@ -3,27 +3,34 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Robots
 {
     public class RobotService
     {
-        private IEnumerable<string> _apiUrls;
-        private HttpClient _client;
+        private IEnumerable<string> apiUrls;
+        private HttpClient client;
 
         public RobotService(IEnumerable<string> apiUrls)
         {
-            _apiUrls = apiUrls;
-            _client = new HttpClient();
+            this.apiUrls = apiUrls;
+            this.client = new HttpClient();
         }
 
-        public Task<IEnumerable<Robot>> FetchRobots()
+        public async Task<Robot> SelectRobotForLoad(LoadRequest load)
         {
-            foreach (string url in _apiUrls)
+            IEnumerable<Robot> robots = await GetRobots();
+            return robots.First();
+        }
+
+        public Task<IEnumerable<Robot>> GetRobots()
+        {
+            foreach (string url in apiUrls)
             {
                 try
                 {
-                    return _client.GetFromJsonAsync<IEnumerable<Robot>>(url);
+                    return client.GetFromJsonAsync<IEnumerable<Robot>>(url);
                 }
                 catch (Exception e)
                 {

@@ -11,21 +11,20 @@ namespace Robots.Controllers
     [Route("[controller]")]
     public class RobotsController : ControllerBase
     {
-        private readonly ILogger<RobotsController> _logger;
-        private readonly RobotService _robotService;
+        private readonly ILogger<RobotsController> log;
+        private readonly RobotService robotService;
 
         public RobotsController(ILogger<RobotsController> logger)
         {
-            _logger = logger;
-            _robotService = new RobotService(new List<string> { "https://60c8ed887dafc90017ffbd56.mockapi.io/robots" });
+            this.log = log;
+            this.robotService = new RobotService(new List<string> { "https://60c8ed887dafc90017ffbd56.mockapi.io/robots" });
         }
 
         [HttpPost]
-        public async Task<RobotResponse> RequestRobot(RobotRequest request)
+        public async Task<LoadResponse> RequestRobot(LoadRequest request)
         {
-            IEnumerable<Robot> robots = await _robotService.FetchRobots();
-            Robot robot = robots.First();
-            return new RobotResponse { RobotId = robot.RobotId, DistanceToGoal = 99, BatteryLevel = robot.BatteryLevel };
+            Robot robot = await robotService.SelectRobotForLoad(request);
+            return new LoadResponse(robot.RobotId, 99, robot.BatteryLevel);
         }
     }
 }
