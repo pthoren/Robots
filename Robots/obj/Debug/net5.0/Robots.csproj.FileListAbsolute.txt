@@ -26,3 +26,7 @@
 /Users/pthoren/retention_folder/personal/net/Robots/obj/Debug/net5.0/ref/Robots.dll
 /Users/pthoren/retention_folder/personal/net/Robots/obj/Debug/net5.0/Robots.pdb
 /Users/pthoren/retention_folder/personal/net/Robots/obj/Debug/net5.0/Robots.genruntimeconfig.cache
+/Users/pthoren/retention_folder/personal/net/Robots/bin/Debug/net5.0/System.Net.Http.Json.dll
+/Users/pthoren/retention_folder/personal/net/Robots/bin/Debug/net5.0/System.Runtime.CompilerServices.Unsafe.dll
+/Users/pthoren/retention_folder/personal/net/Robots/bin/Debug/net5.0/System.Text.Encodings.Web.dll
+/Users/pthoren/retention_folder/personal/net/Robots/bin/Debug/net5.0/System.Text.Json.dll

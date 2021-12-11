@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jCltS79Q1vDV5gKcpY10A/f38NalwXuKhxcceyjDCQ7F6yC62M7VeNwJ+72wBV1bkFIKEvJ7ZoJt54y+mrWJvA==",
+  "dgSpecHash": "T9Q9osQm9s6Co2HivLqL1E8ZXK4cr7dKhwau2vT7xSzv2g110FeYPjOBje3TV3krwOvpvJBEU6TEsMsQgWB8ng==",
   "success": true,
   "projectFilePath": "/Users/pthoren/retention_folder/personal/net/Robots/Robots.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,11 @@
     "/Users/pthoren/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "/Users/pthoren/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "/Users/pthoren/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
-    "/Users/pthoren/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+    "/Users/pthoren/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
+    "/Users/pthoren/.nuget/packages/system.net.http.json/6.0.0/system.net.http.json.6.0.0.nupkg.sha512",
+    "/Users/pthoren/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "/Users/pthoren/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
+    "/Users/pthoren/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

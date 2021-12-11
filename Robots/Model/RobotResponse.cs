@@ -4,7 +4,7 @@ namespace Robots
 {
     public class RobotResponse
     {
-        public int RobotId { get; set; }
+        public string RobotId { get; set; }
 
         public double DistanceToGoal { get; set; }
 
